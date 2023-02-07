@@ -11,7 +11,7 @@ setup(
     version=main_ns['__version__'],
     description="doc_manager class for django",
     install_requires=["django==3.2.17"],
-    url="https://bitbucket.org/impicode/doc-manager/",
+    url="https://github.com/impicode/doc_manager/",
     package_dir={"doc-manager": "doc_manager"},
     include_package_data=True,
     data_files=[(
