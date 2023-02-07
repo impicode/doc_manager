@@ -12,11 +12,11 @@ Installation
 
 To install module with pip: ::
 
-    pip install git+ssh://git@github.com/impicode/doc-manager.git
+    pip install git+ssh://git@github.com/impicode/doc_manager.git
 
 for a specific branch: ::
 
-    pip install git+ssh://git@github.com/impicode/doc-manager.git@branchname
+    pip install git+ssh://git@github.com/impicode/doc_manager.git@branchname
 
 
 Requirements
