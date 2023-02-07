@@ -10,11 +10,11 @@ Installation
 ------------
 
 
-To install module with pip::
+To install module with pip: ::
 
     pip install git+ssh://git@bitbucket.org/impicode/doc-manager.git
 
-for a specific branch::
+for a specific branch: ::
 
     pip install git+ssh://git@bitbucket.org/impicode/doc-manager.git@branchname
 
@@ -27,7 +27,7 @@ Requirements
 Setup
 -----
 
-Define the model in  ``our_app/models.py``:::
+Define the model in  ``our_app/models.py``: ::
 
     from doc_manager.models import DocumentModel
 
@@ -35,7 +35,7 @@ Define the model in  ``our_app/models.py``:::
         pass
 
 Register the model in django admin, where the documents are published.
-``our_app/admin.py`` changes:::
+``our_app/admin.py`` changes: ::
 
     from doc_manager.admin import DocumentAdmin
     from .models import OurModel
@@ -46,7 +46,7 @@ Register the model in django admin, where the documents are published.
 
 Create a view responsible for displaying the pdf document and assign a specific url to it.
 
-``our_app/views.py`` changes:::
+``our_app/views.py`` changes: ::
 
     from doc_manager.views import DocumentView
     from .models import OurModel
@@ -55,7 +55,7 @@ Create a view responsible for displaying the pdf document and assign a specific 
     class OurView(DocumentView):
         model = OurModel
 
-Adding path to ``urls.py``:::
+Adding path to ``urls.py``: ::
 
     from our_app.views import OurView
 
@@ -64,12 +64,12 @@ Adding path to ``urls.py``:::
         path('see_document/', OurView.as_view(), name = 'see_document'),
     ]
 
-To add a link to the view of a published document, just:::
+To add a link to the view of a published document, just: ::
 
     <a  href="{% url 'see_document' %}" target="_blank">See document</a>
 
 
-Don't forget to migrate after adding a new model::
+Don't forget to migrate after adding a new model: ::
 
     python manage.py makemigrations
     python manage.py migrate
@@ -89,7 +89,7 @@ Published document is now visible at the URL you previously specified in urls.py
 Example
 -------
 
-Go to *doc-manager/example/example_doc*, then run:::
+Go to *doc-manager/example/example_doc*, then run: ::
 
     python manage.py makemigrations
     python manage.py migrate
@@ -107,10 +107,10 @@ Then:
 pre-commit Installation
 -----------------------
 
-In case of developing doc_manager itself please install pre-commit before your first commit. You can do it with following commands:::
+In case of developing doc_manager itself please install pre-commit before your first commit. You can do it with following commands: ::
 
     pip install pre-commit
 
-Then in main directory:::
+Then in main directory: ::
 
     pre-commit install
