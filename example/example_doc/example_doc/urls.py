@@ -21,5 +21,5 @@ from our_app.views import OurView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('see_document/', OurView.as_view(), name = 'see_document')
+    path('see_document/', OurView.as_view(), name='see_document')
 ]
