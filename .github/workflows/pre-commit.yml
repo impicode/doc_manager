@@ -2,8 +2,8 @@
 name: pre-commit
 
 on:
-  - push
-  - pull_request
+  pull_request:
+  push:
 
 jobs:
   pre-commit:
