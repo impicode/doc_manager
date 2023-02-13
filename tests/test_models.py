@@ -1,5 +1,27 @@
 from django.test import TestCase
 from tests.models import TestModel
+from doc_manager.models import ContentTypeRestrictedFileField
+from django.core.exceptions import ValidationError
+
+
+class TestFile():
+    content_type = ''
+    size = 0
+
+    def __init__(self, content_type, size):
+        self.content_type = content_type
+        self.size = size
+
+
+class TestValue():
+    file = None
+    name = ''
+    content_type = ''
+
+    def __init__(self, name, content_type, size):
+        self.file = TestFile(content_type, size)
+        self.name = name
+        self.content_type = content_type
 
 
 class DocumentModelTestClass(TestCase):
@@ -35,3 +57,35 @@ class DocumentModelTestClass(TestCase):
             self.assertFalse(TestModel.objects.get(pk=docs[i].pk).published)
 
         self.assertTrue(TestModel.objects.get(pk=docs[9].pk).published)
+
+    def test_wrong_file_extension(self):
+        f = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/')
+        try:
+            f.clean(value=TestValue('test.txt', 'txt', 10), model_instance='')
+            self.fail()
+        except ValidationError:
+            pass
+
+    def test_correct_file_extension(self):
+        f = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/')
+        try:
+            f.clean(
+                value=TestValue('test.pdf', 'application/pdf', 10),
+                model_instance=''
+            )
+        except ValidationError:
+            self.fail()
+
+    def test_to_big_size(self):
+        f = ContentTypeRestrictedFileField(
+            upload_to='documents/%Y/%m/%d/',
+            max_upload_size=10
+        )
+        try:
+            f.clean(
+                value=TestValue('test.pdf', 'application/pdf', 100),
+                model_instance=''
+            )
+            self.fail()
+        except ValidationError:
+            pass
