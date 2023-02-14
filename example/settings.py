@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'doc_manager',
-    'our_app'
+    'example.our_app'
 ]
 
 MIDDLEWARE = [
@@ -51,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'example_doc.urls'
+ROOT_URLCONF = 'example.urls'
 
 TEMPLATES = [
     {
@@ -69,8 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'example_doc.wsgi.application'
-
+WSGI_APPLICATION = "example.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
