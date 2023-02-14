@@ -6,7 +6,7 @@ Example
 Run example
 ===========
 
-Go to *doc-manager/example/example_doc*, then run:::
+In main directory run: ::
 
     python manage.py makemigrations
     python manage.py migrate

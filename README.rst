@@ -89,7 +89,7 @@ Published document is now visible at the URL you previously specified in urls.py
 Example
 -------
 
-Go to *doc-manager/example/example_doc*, then run: ::
+In main directory run: ::
 
     python manage.py makemigrations
     python manage.py migrate
