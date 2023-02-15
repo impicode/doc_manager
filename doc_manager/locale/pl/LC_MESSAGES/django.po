@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-15 11:15+0100\n"
+"POT-Creation-Date: 2023-02-15 16:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
-"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
 #: admin.py:33
 msgid "Document published"
 msgstr "Dokument opublikowany"
@@ -35,3 +36,23 @@ msgstr "Ten format pliku nie jest wspierany."
 #, python-format
 msgid "Please keep filesize under %s. Current filesize %s"
 msgstr "Rozmiar pliku nie powinien przekraczać %s. Aktualny rozmiar pliku to %s."
+
+#: models.py:67
+msgid "Add date"
+msgstr "Data dodania"
+
+#: models.py:68
+msgid "Publication date"
+msgstr "Data publikacji"
+
+#: models.py:69
+msgid "Published"
+msgstr "Opublikowany"
+
+#: models.py:70
+msgid "PDF file"
+msgstr "Plik PDF"
+
+#: templates/admin_change_form_documents.html:11
+msgid "Publish"
+msgstr "Opublikuj"

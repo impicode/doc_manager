@@ -3,11 +3,12 @@
 (c) ImpiCode Sp. z o.o.
 Stamp: MAL 2021-06-04
 {% endcomment %}
+{% load i18n %}
 
 {% block after_related_objects %}
 {% if change %}
     {% if not adminform.form.instance.published %}
-        <input type="submit" name="_make_published" value="Publish"
+        <input type="submit" name="_make_published" value="{% trans 'Publish' %}"
             class="grp-button grp-default" style="margin-bottom: 35px">
     {% endif %}
 {% endif %}
