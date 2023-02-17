@@ -21,7 +21,7 @@ for a specific branch: ::
 
 Requirements
 ------------
-- django==3.2.17
+- django>=3.2.17
 
 
 Setup
