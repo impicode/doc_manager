@@ -64,10 +64,10 @@ class DocumentManager(models.Manager):
 
 
 class DocumentModel(models.Model):
-    add_date = models.DateField(auto_now_add=True)
-    pub_date = models.DateField(null=True, blank=True)
-    published = models.BooleanField(default=False)
-    pdf_file = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/')
+    add_date = models.DateField(auto_now_add=True, verbose_name=_('Add date'))
+    pub_date = models.DateField(null=True, blank=True, verbose_name=_('Publication date'))
+    published = models.BooleanField(default=False, verbose_name=_('Published'))
+    pdf_file = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/', verbose_name=_('PDF file'))
     objects = DocumentManager()
 
     class Meta:

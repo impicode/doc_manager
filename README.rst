@@ -21,7 +21,7 @@ for a specific branch: ::
 
 Requirements
 ------------
-- django==3.2.17
+- django>=3.2.17
 
 
 Setup
@@ -86,10 +86,24 @@ Usage
 Published document is now visible at the URL you previously specified in urls.py
 
 
+Translations
+-------
+
+We provide translations only to Polish. If you need any other language run in doc_manager directory: ::
+
+    django-admin makemessages -l <language code>
+
+then in created file /locale/<language code>/LC_MESSAGES/django.po enter your translations and run: ::
+
+    django-admin compilemessages
+
+Now you have doc-manager app with your custom transltions ready to use in your project.
+
+
 Example
 -------
 
-Go to *doc-manager/example/example_doc*, then run: ::
+In main directory run: ::
 
     python manage.py makemigrations
     python manage.py migrate
