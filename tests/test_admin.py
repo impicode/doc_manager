@@ -1,7 +1,5 @@
 from django.test import TestCase, RequestFactory
 from django.contrib.admin.sites import AdminSite
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
 from tests.models import TestModel
 from tests.admin import TestAdmin
 
@@ -25,7 +23,7 @@ class FakeMessage():
 
     def __init__(self):
         pass
-    
+
     def add(self, level, message, extra_tags):
         self.level = level
         self.message = message
@@ -36,7 +34,7 @@ class AdminTestClass(TestCase):
     def setUp(self):
         self.site = TestAdmin(model=TestModel, admin_site=AdminSite())
         self.factory = RequestFactory()
-    
+
     def test_get_readonly_fields(self):
         self.assertEqual(self.site.get_readonly_fields(None), ())
         doc = TestModel.objects.create()
