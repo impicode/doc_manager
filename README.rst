@@ -121,7 +121,7 @@ Then:
 pre-commit Installation
 -----------------------
 
-In case of developing doc_manager itself please install pre-commit before your first commit. You can do it with following commands: ::
+In case of developing doc_manager itself please install pre-commit before your first commit. You can do it with the following commands: ::
 
     pip install pre-commit
 
