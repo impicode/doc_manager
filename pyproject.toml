@@ -1,3 +1,28 @@
+[tool.poetry]
+name = "doc_manager"
+version = "1.1.0"
+description = "doc_manager is a django library for publishing documents in pdf format like privacy policy or term of use."
+authors = ["Impicode"]
+license = "MIT"
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Django = ">=3.2.17"
+
+[tool.poetry.dev-dependencies]
+
 [build-system]
-requires = ["setuptools", "wheel", "setuptools_scm"]
-build-backend = 'setuptools.build_meta'
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_variable = "pyproject.toml:version" # version location
+branch = "tys/pypi"                         # branch to make releases of
+changelog_file = "CHANGELOG.rst"            # changelog file
+build_command = "poetry build"              # build dists
+dist_path = "dist/"                         # where to put dists
+upload_to_release = true                    # auto-create GitHub release
+upload_to_pypi = false                      # don't auto-upload to PyPI
+remove_dist = false                         # don't remove dists
+patch_without_tag = true                    # patch release by default

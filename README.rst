@@ -87,7 +87,7 @@ Published document is now visible at the URL you previously specified in urls.py
 
 
 Translations
--------
+------------
 
 We provide translations only to Polish. If you need any other language run in doc_manager directory: ::
 
