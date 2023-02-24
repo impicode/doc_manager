@@ -37,7 +37,9 @@ class DocumentModelTestClass(TestCase):
         TestModel.objects.set_published(doc1.pk)
         TestModel.objects.set_published(doc2.pk)
         doc1 = TestModel.objects.get(pk=doc1.pk)
+        published_doc = TestModel.objects.published_pdf()
         self.assertFalse(doc1.published)
+        self.assertTrue(published_doc.pk == doc2.pk)
 
     def test_publish_date(self):
         doc = TestModel.objects.create()
