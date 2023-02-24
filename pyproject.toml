@@ -1,3 +1,29 @@
+[tool.poetry]
+name = "doc_manager"
+version = "0.0.2"
+description = "doc_manager is a django library for publishing documents in pdf format like privacy policy or term of use."
+authors = ["Impicode"]
+license = "MIT"
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Django = ">=3.2.17"
+
+[tool.poetry.group.dev.dependencies]
+python-semantic-release = "^7.33.2"
+
 [build-system]
-requires = ["setuptools", "wheel", "setuptools_scm"]
-build-backend = 'setuptools.build_meta'
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_variable = ["doc_manager/version.py:__version__", "pyproject.toml:version"]
+branch = "main"
+changelog_file = "CHANGELOG.rst"
+build_command = "poetry build"
+dist_path = "dist/"
+upload_to_release = true
+upload_to_pypi = false
+remove_dist = false
+patch_without_tag = true

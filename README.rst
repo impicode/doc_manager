@@ -87,7 +87,7 @@ Published document is now visible at the URL you previously specified in urls.py
 
 
 Translations
--------
+------------
 
 We provide translations only to Polish. If you need any other language run in doc_manager directory: ::
 
@@ -121,7 +121,7 @@ Then:
 pre-commit Installation
 -----------------------
 
-In case of developing doc_manager itself please install pre-commit before your first commit. You can do it with following commands: ::
+In case of developing doc_manager itself please install pre-commit before your first commit. You can do it with the following commands: ::
 
     pip install pre-commit
 
