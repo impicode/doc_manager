@@ -16,7 +16,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class ContentTypeRestrictedFileField(FileField):
-    def __init__(self, content_types=['application/pdf'],
+    def __init__(self, content_types=['application/pdf', 'text/html'],
                  max_upload_size=None, upload_to=None, **kwargs):
         self.content_types = content_types
         self.max_upload_size = (
@@ -24,7 +24,7 @@ class ContentTypeRestrictedFileField(FileField):
             if max_upload_size
             else getattr(settings, 'MAX_FILE_UPLOAD_SIZE', 5242880)
         )
-        kwargs['validators'] = [FileExtensionValidator(['pdf'])]
+        kwargs['validators'] = [FileExtensionValidator(['pdf', 'html'])]
         super(ContentTypeRestrictedFileField, self).__init__(**kwargs)
         self.upload_to = (
             upload_to
@@ -54,7 +54,7 @@ class ContentTypeRestrictedFileField(FileField):
 
 
 class DocumentManager(models.Manager):
-    def published_pdf(self):
+    def published(self):
         return self.model.objects.filter(published=True).first()
 
     def set_published(self, pk):
@@ -67,7 +67,7 @@ class DocumentModel(models.Model):
     add_date = models.DateField(auto_now_add=True, verbose_name=_('Add date'))
     pub_date = models.DateField(null=True, blank=True, verbose_name=_('Publication date'))
     published = models.BooleanField(default=False, verbose_name=_('Published'))
-    pdf_file = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/', verbose_name=_('PDF file'))
+    file_obj = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/', verbose_name=_('File'))
     objects = DocumentManager()
 
     class Meta:
@@ -79,5 +79,5 @@ class DocumentModel(models.Model):
         self.pub_date = date.today()
         self.save()
 
-    def pdf_filename(self):
-        return os.path.basename(self.pdf_file.name)
+    def filename(self):
+        return os.path.basename(self.file_obj.name)

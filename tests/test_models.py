@@ -37,7 +37,7 @@ class DocumentModelTestClass(TestCase):
         TestModel.objects.set_published(doc1.pk)
         TestModel.objects.set_published(doc2.pk)
         doc1 = TestModel.objects.get(pk=doc1.pk)
-        published_doc = TestModel.objects.published_pdf()
+        published_doc = TestModel.objects.published()
         self.assertFalse(doc1.published)
         self.assertTrue(published_doc.pk == doc2.pk)
 
@@ -63,16 +63,26 @@ class DocumentModelTestClass(TestCase):
     def test_wrong_file_extension(self):
         f = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/')
         try:
-            f.clean(value=TestValue('test.txt', 'txt', 10), model_instance='')
+            f.clean(value=TestValue('test.txt', 'text/plain', 10), model_instance='')
             self.fail()
         except ValidationError:
             pass
 
-    def test_correct_file_extension(self):
+    def test_correct_file_extension_pdf(self):
         f = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/')
         try:
             f.clean(
                 value=TestValue('test.pdf', 'application/pdf', 10),
+                model_instance=''
+            )
+        except ValidationError:
+            self.fail()
+
+    def test_correct_file_extension_html(self):
+        f = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/')
+        try:
+            f.clean(
+                value=TestValue('test.html', 'text/html', 10),
                 model_instance=''
             )
         except ValidationError:
