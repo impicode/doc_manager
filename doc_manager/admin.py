@@ -12,13 +12,15 @@ from django.db.models import FileField
 class DocumentAdmin(admin.ModelAdmin):
     exclude = ('pub_date', 'published')
     change_form_template = 'admin_change_form_documents.html'
-    list_display = ('pdf_filename', 'add_date', 'pub_date', 'published')
+    list_display = ('filename', 'add_date', 'pub_date', 'published')
     ordering = ['-published', 'pub_date']
     model = None
-    search_fields = ['pdf_file']
+    search_fields = ['file']
     list_filter = ['add_date']
     formfield_overrides = {
-        FileField: {'widget': FileInput(attrs={'accept': 'application/pdf'})},
+        FileField: {
+            'widget': FileInput(attrs={'accept': ['application/pdf', 'text/html']})
+        },
     }
 
     def get_readonly_fields(self, request, obj=None):
