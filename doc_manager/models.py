@@ -16,6 +16,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class ContentTypeRestrictedFileField(FileField):
+    """FileField only for files in html and pdf format."""
     def __init__(self, content_types=['application/pdf', 'text/html'],
                  max_upload_size=None, upload_to=None, **kwargs):
         self.content_types = content_types
@@ -58,6 +59,10 @@ class DocumentManager(models.Manager):
         return self.model.objects.filter(published=True).first()
 
     def set_published(self, pk):
+        """
+        Sets document with id equal to pk to published and all currently
+        published documents are unpublished.
+        """
         obj = self.model.objects.get(pk=pk)
         self.model.objects.filter(published=True).update(published=False)
         obj.publish()

@@ -10,6 +10,7 @@ from django.db.models import FileField
 
 
 class DocumentAdmin(admin.ModelAdmin):
+    """Admin class for publishing documents with a 'Publish' button."""
     exclude = ('pub_date', 'published')
     change_form_template = 'admin_change_form_documents.html'
     list_display = ('filename', 'add_date', 'pub_date', 'published')
@@ -29,6 +30,7 @@ class DocumentAdmin(admin.ModelAdmin):
         return self.readonly_fields
 
     def make_published(self, request, queryset):
+        """Publishes document with id equal to queryset.pk."""
         if queryset:
             self.model.objects.set_published(queryset.pk)
             self.message_user(request, _(
@@ -40,6 +42,10 @@ class DocumentAdmin(admin.ModelAdmin):
     @csrf_protect_m
     def changeform_view(self, request, object_id=None, form_url='',
                         extra_context=None):
+        """
+        If method is POST publishes document with id equal to object_id
+        and if method is GET redirects to admin view of document.
+        """
         if request.method == 'POST' and '_make_published' in request.POST:
             obj = self.get_object(request, unquote(object_id))
             self.make_published(request, obj)

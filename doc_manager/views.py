@@ -6,6 +6,7 @@ class DocumentView(View):
     model = None
 
     def get(self, request):
+        """Returns currently published file."""
         document_model = self.model.objects.published()
         if document_model is None:
             raise Http404
