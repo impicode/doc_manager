@@ -128,3 +128,17 @@ In case of developing doc_manager itself please install pre-commit before your f
 Then in main directory: ::
 
     pre-commit install
+
+
+Testing
+-------
+
+To run tests in main directory run: ::
+
+    python runtests.py
+
+You can also run tests with tox. In main directory run: ::
+
+    tox
+
+That command will run tests discribed above, pre-commit style checks against all files and build a test package with poetry.

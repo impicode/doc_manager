@@ -67,7 +67,10 @@ class DocumentModel(models.Model):
     add_date = models.DateField(auto_now_add=True, verbose_name=_('Add date'))
     pub_date = models.DateField(null=True, blank=True, verbose_name=_('Publication date'))
     published = models.BooleanField(default=False, verbose_name=_('Published'))
-    file_obj = ContentTypeRestrictedFileField(upload_to='documents/%Y/%m/%d/', verbose_name=_('File'))
+    file_obj = ContentTypeRestrictedFileField(
+                    upload_to='documents/%Y/%m/%d/',
+                    verbose_name=_('File')
+                )
     objects = DocumentManager()
 
     class Meta:
