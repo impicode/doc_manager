@@ -43,7 +43,7 @@ class DocumentAdmin(admin.ModelAdmin):
     def changeform_view(self, request, object_id=None, form_url='',
                         extra_context=None):
         """
-        If method is POST publishes document woth id equal to object_id
+        If method is POST publishes document with id equal to object_id
         and if method is GET redirects to admin view of document.
         """
         if request.method == 'POST' and '_make_published' in request.POST:
