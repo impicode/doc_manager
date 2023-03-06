@@ -3,7 +3,7 @@ doc_manager
 ===========
 
 
-**doc_manager** is a django library for publishing documents in pdf format like privacy policy or term of use. It allows you to easily publish new versions of documents while preserving historical documents.
+**doc_manager** is a django library for publishing documents in pdf and html format like privacy policy or term of use. It allows you to easily publish new versions of documents while preserving historical documents.
 
 
 Installation
@@ -44,7 +44,7 @@ Register the model in django admin, where the documents are published.
     class OurAdmin(DocumentAdmin):
         model = OurModel
 
-Create a view responsible for displaying the pdf document and assign a specific url to it.
+Create a view responsible for displaying the pdf or html document and assign a specific url to it.
 
 ``our_app/views.py`` changes: ::
 

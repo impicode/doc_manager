@@ -48,8 +48,8 @@ msgid "Published"
 msgstr "Published"
 
 #: models.py:70
-msgid "PDF file"
-msgstr "PDF file"
+msgid "File"
+msgstr "File"
 
 #: templates/admin_change_form_documents.html:11
 msgid "Publish"
