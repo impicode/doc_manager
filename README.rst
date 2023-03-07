@@ -1,7 +1,17 @@
 
 doc_manager
 ===========
+.. image:: https://img.shields.io/badge/license-MIT-lightgrey
+    :alt: License MIT
+    :target: https://en.wikipedia.org/wiki/MIT_License
 
+.. image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue
+    :alt: PyPI - Python Version
+    :target: https://www.python.org/
+
+.. image:: https://img.shields.io/badge/django%20versions-3.2%20%7C%204.0%20%7C%204.1-blue
+    :alt: PyPI - Django Version
+    :target: https://www.djangoproject.com/
 
 **doc_manager** is a django library for publishing documents in pdf and html format like privacy policy or term of use. It allows you to easily publish new versions of documents while preserving historical documents.
 
