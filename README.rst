@@ -37,6 +37,13 @@ Requirements
 Setup
 -----
 
+Add doc-manager to INSTALLED_APPS in settings.py file: ::
+    INSTALLED_APPS = [
+        ...
+        'doc_manager',
+        ...
+    ]
+
 Define the model in  ``our_app/models.py``: ::
 
     from doc_manager.models import DocumentModel
