@@ -38,6 +38,7 @@ Setup
 -----
 
 Add doc-manager to INSTALLED_APPS in settings.py file: ::
+
     INSTALLED_APPS = [
         ...
         'doc_manager',
