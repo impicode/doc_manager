@@ -1,0 +1,26 @@
+
+name: pre-commit
+
+on: [pull_request, push]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: check-added-large-files
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: check-merge-conflict
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: end-of-file-fixer
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: trailing-whitespace
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: flake8
