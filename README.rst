@@ -19,8 +19,11 @@ doc_manager
 Installation
 ------------
 
+You can install module from pypi with pip: ::
 
-To install module with pip: ::
+    pip install doc-manager
+
+or install it from repository with pip: ::
 
     pip install git+ssh://git@github.com/impicode/doc_manager.git
 
