@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "doc_manager"
-version = "0.1.0"
-description = "doc_manager is a django library for publishing documents in pdf format like privacy policy or term of use."
-authors = ["Impicode"]
+version = "1.0.0"
+description = "doc_manager is a django library for publishing documents in pdf and html format like privacy policy or term of use."
+authors = ["ImpiCode"]
 license = "MIT"
 readme = "README.rst"
 
